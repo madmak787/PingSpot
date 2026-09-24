@@ -1,0 +1,227 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Same neutral + violet token set as the other tools on tool.khanamir.me */
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.21 0.006 286);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.006 286);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0.006 286);
+  --primary: oklch(0.541 0.214 283);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.967 0.001 286);
+  --secondary-foreground: oklch(0.21 0.006 286);
+  --muted: oklch(0.967 0.001 286);
+  --muted-foreground: oklch(0.552 0.016 286);
+  --accent: oklch(0.955 0.004 286);
+  --accent-foreground: oklch(0.21 0.006 286);
+  --destructive: oklch(0.577 0.245 27.3);
+  --destructive-foreground: oklch(0.985 0 0);
+  --success: oklch(0.6 0.15 155);
+  --border: oklch(0.92 0.004 286);
+  --input: oklch(0.92 0.004 286);
+  --ring: oklch(0.541 0.214 283);
+  --brand-soft: oklch(0.955 0.03 283);
+  --shadow-card: 0 1px 2px rgb(16 16 24 / 0.04), 0 4px 16px -4px rgb(16 16 24 / 0.06);
+}
+
+.dark {
+  --background: oklch(0.155 0.004 286);
+  --foreground: oklch(0.96 0.002 286);
+  --card: oklch(0.2 0.005 286);
+  --card-foreground: oklch(0.96 0.002 286);
+  --popover: oklch(0.21 0.005 286);
+  --popover-foreground: oklch(0.96 0.002 286);
+  --primary: oklch(0.68 0.16 283);
+  --primary-foreground: oklch(0.16 0.01 286);
+  --secondary: oklch(0.26 0.006 286);
+  --secondary-foreground: oklch(0.96 0.002 286);
+  --muted: oklch(0.26 0.006 286);
+  --muted-foreground: oklch(0.7 0.012 286);
+  --accent: oklch(0.27 0.006 286);
+  --accent-foreground: oklch(0.96 0.002 286);
+  --destructive: oklch(0.66 0.2 22);
+  --destructive-foreground: oklch(0.985 0 0);
+  --success: oklch(0.72 0.15 155);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 13%);
+  --ring: oklch(0.68 0.16 283);
+  --brand-soft: oklch(0.3 0.06 283);
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -6px rgb(0 0 0 / 0.4);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fredoka), ui-rounded, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand-soft: var(--brand-soft);
+  --shadow-card: var(--shadow-card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+}
+
+/* ---------- Map ---------- */
+
+.pingspot-map.leaflet-container {
+  font: inherit;
+  background: var(--muted);
+}
+
+/* Free dark tile sets need an API key, so derive a dark map from the standard OSM tiles */
+.dark .pingspot-map .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.85) saturate(0.6);
+}
+
+.pingspot-map .leaflet-control-zoom {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.pingspot-map .leaflet-control-zoom a {
+  background: var(--card);
+  color: var(--foreground);
+  border-color: var(--border);
+}
+
+.pingspot-map .leaflet-control-zoom a:hover {
+  background: var(--accent);
+}
+
+.pingspot-map .leaflet-control-attribution {
+  background: color-mix(in oklch, var(--card) 85%, transparent);
+  color: var(--muted-foreground);
+  font-size: 10px;
+}
+
+.pingspot-map .leaflet-control-attribution a {
+  color: inherit;
+}
+
+.pingspot-map .leaflet-popup-content-wrapper,
+.pingspot-map .leaflet-popup-tip {
+  background: var(--popover);
+  color: var(--popover-foreground);
+  box-shadow: var(--shadow-card);
+}
+
+.pingspot-map .leaflet-popup-content-wrapper {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.pingspot-map .leaflet-popup-content {
+  margin: 10px 12px;
+}
+
+.pingspot-popup {
+  display: grid;
+  gap: 2px;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.pingspot-popup strong {
+  font-size: 13px;
+}
+
+.pingspot-popup span,
+.pingspot-popup small {
+  color: var(--muted-foreground);
+}
+
+.pingspot-popup small {
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.pingspot-accuracy {
+  stroke: var(--primary);
+  fill: var(--primary);
+}
+
+.pingspot-marker {
+  background: none;
+  border: 0;
+}
+
+.pingspot-marker-dot,
+.pingspot-marker-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+}
+
+.pingspot-marker-dot {
+  inset: 4px;
+  background: var(--primary);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.35);
+}
+
+.pingspot-marker-pulse {
+  background: var(--primary);
+  opacity: 0.45;
+  animation: pingspot-pulse 2s ease-out infinite;
+}
+
+@keyframes pingspot-pulse {
+  from {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pingspot-marker-pulse {
+    animation: none;
+    opacity: 0;
+  }
+}

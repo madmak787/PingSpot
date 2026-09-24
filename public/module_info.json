@@ -1,0 +1,9 @@
+{
+  "title": "PingSpot",
+  "short_desc": "What's my IP? See your public IPv4 and IPv6, then look up the location, ISP, ASN and timezone of any IP address or domain on a live map. Free, no sign-up.",
+  "doclink": "#",
+  "status": "live",
+  "type": "module",
+  "slug": "pingspot",
+  "tags": "free ip lookup what is my ip geolocation domain dns asn map"
+}
