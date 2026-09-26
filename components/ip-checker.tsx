@@ -284,9 +284,9 @@ export function IPChecker() {
       <footer className="border-t">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-5 text-center text-xs text-muted-foreground sm:px-6 lg:flex-row lg:text-left">
           <p>
-            Built by{" "}
-            <a href="https://khanamir.me" className="font-medium text-foreground underline-offset-2 hover:underline">
-              Mohd Amir Khan
+            Coded By &copy;
+            <a href="https://khanamir.me" target="_blank" rel="noopener" className="font-medium text-foreground underline-offset-2 hover:underline">
+              madmak787
             </a>
             . Lookups run in your browser; nothing is stored on a server.
           </p>
