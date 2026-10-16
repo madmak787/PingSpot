@@ -4,6 +4,8 @@ An IP and domain locator by [Mohd Amir Khan](https://khanamir.me). It shows your
 
 Live: **https://tool.khanamir.me/pingspot**
 
+![PingSpot showing the location and network details for 8.8.8.8](docs/screenshot.webp)
+
 ## Features
 
 - Accepts IPv4, IPv6, domains and pasted URLs (`https://example.com/path`, `1.2.3.4:8080`, `[2001:db8::1]`)
