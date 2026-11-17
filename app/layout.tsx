@@ -1,26 +1,11 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Fredoka, Inter, JetBrains_Mono } from "next/font/google"
+import { GeistSans } from "geist/font/sans"
+import { GeistMono } from "geist/font/mono"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/sonner"
 import "./globals.css"
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-})
-
-const fredoka = Fredoka({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  variable: "--font-fredoka",
-})
-
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  variable: "--font-jetbrains",
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://tool.khanamir.me/pingspot"),
@@ -54,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${fredoka.variable} ${mono.variable} font-sans antialiased`}>
+      <body className={`${GeistSans.variable} ${GeistMono.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
           <Toaster position="bottom-center" />

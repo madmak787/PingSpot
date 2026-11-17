@@ -23,7 +23,7 @@ export function Logo({ className }: { className?: string }) {
     <span className={cn("flex items-center gap-2.5", className)}>
       <LogoMark />
       <span className="leading-none">
-        <span className="block font-display text-[17px] font-semibold tracking-tight">PingSpot</span>
+        <span className="block font-display text-[17px] font-medium">PingSpot</span>
         <span className="mt-0.5 block text-[11px] text-muted-foreground">IP &amp; domain locator</span>
       </span>
     </span>

@@ -173,7 +173,7 @@ export function IPChecker() {
 
   return (
     <div className="flex min-h-dvh flex-col">
-      <header className="sticky top-0 z-1000 border-b bg-background/80 backdrop-blur supports-backdrop-filter:bg-background/70">
+      <header className="sticky top-0 z-1000 border-b bg-background">
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
           <button type="button" onClick={showMine} className="rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
             <Logo />
@@ -192,7 +192,7 @@ export function IPChecker() {
 
       <main className="mx-auto w-full max-w-6xl flex-1 px-4 pb-12 pt-8 sm:px-6 sm:pt-12">
         <section className="mx-auto max-w-2xl text-center">
-          <h1 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h1 className="font-display text-3xl font-medium tracking-tight sm:text-4xl">
             Where is that IP?
           </h1>
           <p className="mt-2 text-pretty text-muted-foreground">
@@ -342,7 +342,7 @@ function OwnAddresses({
       <div className="grid flex-1 gap-1 sm:grid-cols-2">
         {rows.map(({ label, value }) => (
           <div key={label} className="flex min-w-0 items-center gap-2 rounded-lg px-3 py-1.5">
-            <span className="w-9 shrink-0 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">{label}</span>
+            <span className="w-9 shrink-0 text-xs font-medium text-muted-foreground">{label}</span>
             {own === null ? (
               <Skeleton className="h-4 w-32" />
             ) : value ? (
@@ -431,7 +431,7 @@ function Results({ result, isOwn }: { result: LookupResult | null; isOwn: boolea
       <div className="flex flex-col gap-6 lg:col-span-2">
         {/* Summary */}
         <section className="rounded-xl border bg-card p-5 shadow-card">
-          <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+          <p className="text-xs font-medium text-muted-foreground">
             {!info ? (
               "Looking up…"
             ) : isOwn ? (
